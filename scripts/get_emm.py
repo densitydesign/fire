@@ -122,7 +122,7 @@ def queryEMM(query, start = dateFrom, end = dateTo, langs = lang, countries = ct
 		
 
 
-queryEMM("weapon murder")
+queryEMM("revolver death")
 
 
 
