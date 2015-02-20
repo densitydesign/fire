@@ -1,0 +1,1 @@
+{ "options" : { "create" : "articles" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "fire.articles", "name" : "_id_" } ] }

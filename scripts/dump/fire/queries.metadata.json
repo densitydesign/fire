@@ -1,0 +1,1 @@
+{ "options" : { "create" : "queries" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "fire.queries", "name" : "_id_" } ] }

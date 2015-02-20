@@ -76,7 +76,7 @@ def getNER():
 	key1="a927283657587fd8d4e17615471c22dabfd2ee379ab2935a4b75a2c5"
 	key2="14c0ac70b96530e1564c9008ceda0b050b13391797f4cda7688f482a"
 
-	arts = db.articles.find( { "entities" : { "$exists" : False }, "excluded" : { "$exists" : False }, "fulltext" : { "$exists" : True }} )
+	arts = db.articles.find( { "entities" : { "$exists" : False }, "excluded" : { "$exists" : False }, "fulltext" : {"$exists":True,"$ne":""}} )
 
 	for row in arts:
 		k = ""
@@ -100,7 +100,7 @@ def getNER():
 		while True:
 			try:
 				if(tries<=5):
-					response = callEntities(row["fulltext"].decode("utf-8"),k)
+					response = callEntities(unicode(row["fulltext"]),k)
 			except Exception,e:
 				print e
 				tries = tries+1
@@ -111,6 +111,8 @@ def getNER():
 		if tries >5:
 			db.articles.update({"_id":row["_id"]},{'$set':{'ner-error': True,'excluded': True}})
 			continue
+
+		print response
 
 		try:
 
