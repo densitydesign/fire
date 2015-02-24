@@ -31,7 +31,7 @@ def callEntities(txt,k):
 
 def getFullText():
 
-	arts = db.articles.find( { "fulltext" : { "$exists" : False }, "excluded" : { "$exists" : False }} )
+	arts = db.articles.find( { "lang":"it","fulltext" : { "$exists" : False }, "excluded" : { "$exists" : False }} )
 
 	for row in arts:
 		try:
@@ -132,5 +132,5 @@ def getNER():
 		print 'entities retrieved'
 
 
-getNER()
-
+cleanDuplicates()
+getFullText()
