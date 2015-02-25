@@ -31,7 +31,7 @@ def callEntities(txt,k):
 
 def getFullText():
 
-	arts = db.articles.find( { "lang":"it","fulltext" : { "$exists" : False }, "excluded" : { "$exists" : False }} )
+	arts = db.articles.find( { "lang":"it","fulltext" : { "$exists" : False }, "excluded" : { "$exists" : False }},timeout=False)
 
 	for row in arts:
 		try:
@@ -45,7 +45,11 @@ def getFullText():
 			db.articles.update({"_id":row["_id"]},{"$set":{"fulltext":row['fulltext']}})
 			
 		except:
-			db.articles.update({"_id":row["_id"]},{"$set":{"excluded":True, "ft-error":True}})
+			try:
+				db.articles.update({"_id":row["_id"]},{"$set":{"excluded":True, "ft-error":True}})
+			except:
+				print "error! error! error! "+row["_id"]
+				continue
 			continue
 		
 		
@@ -76,7 +80,7 @@ def getNER():
 	key1="a927283657587fd8d4e17615471c22dabfd2ee379ab2935a4b75a2c5"
 	key2="14c0ac70b96530e1564c9008ceda0b050b13391797f4cda7688f482a"
 
-	arts = db.articles.find( { "entities" : { "$exists" : False }, "excluded" : { "$exists" : False }, "fulltext" : {"$exists":True,"$ne":""}} )
+	arts = db.articles.find( { "lang": "it", "entities" : { "$exists" : False }, "excluded" : { "$exists" : False }, "fulltext" : {"$exists":True,"$ne":""}} )
 
 	for row in arts:
 		k = ""
@@ -132,5 +136,4 @@ def getNER():
 		print 'entities retrieved'
 
 
-cleanDuplicates()
 getFullText()
