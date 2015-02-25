@@ -1,0 +1,31 @@
+<div class="" data-ng-controller="EmmController">
+    <h1>{{article.title}}</h1>
+    <!--<h2>Queries on small arms related crimes - italian</h2>-->
+    <div class="col-sm-9 fulltext">
+
+        {{article.fulltext}}
+
+    </div>
+
+    <div class="col-sm-3">
+
+        <div class="rightside topics">
+            <h4 ng-click="texpand=!texpand">Topics</h4>
+            <div class="s-content" ng-show="texpand">
+                <div ng-repeat="topic in article.topics | orderBy: 'sort':true | limitTo:20">{{topic.label}}</div>
+            </div>
+        </div>
+
+        <div class="rightside entities">
+            <h4 ng-click="eexpand=!eexpand">Entities</h4>
+            <div class="s-content" ng-show="eexpand">
+                <div class="ent" ng-repeat="entity in article.entities | unique: 'id' | orderBy: ['relevance', 'confidence']:true | limitTo:20">
+                    <div class="e-name">{{entity.id}}</div> <div class="e-rel">{{entity.relevance | number:2}}</div> <div class="e-conf">{{entity.confidence | number:2 }}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

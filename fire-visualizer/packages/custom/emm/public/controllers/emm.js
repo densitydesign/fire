@@ -9,6 +9,10 @@ angular.module('mean.emm').controller('EmmController', ['$scope', '$stateParams'
     $scope.package = {
       name: 'emm'
     };
+
+      $scope.texpand = true;
+      $scope.eexpand = true;
+
   $scope.findOne = function() {
       Emm.get({
           articleId: $stateParams.article

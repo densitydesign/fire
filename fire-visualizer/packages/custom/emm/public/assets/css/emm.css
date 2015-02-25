@@ -1,3 +1,49 @@
 .emm-example h1 {
   background-color: purple
 }
+
+
+.rightside{
+    width:100%;
+    padding:0px 5px;
+    font-family:"Noto+Sans";
+}
+
+h1{
+    font-family:"Bree+Serif";
+    margin-bottom:15px;
+    padding:15px
+}
+.fulltext{
+    font-family:"Vollkorn";
+    font-size:1.3em;
+}
+
+.rightside h4{
+    background-color:#f3f3f3;
+    padding:10px;
+}
+.s-content{
+    overflow:hidden;
+    width:100%;
+}
+.ent{
+    clear:both;
+    width:100%;
+}
+.e-name{
+    width: calc(100% - 100px);
+    float:left;
+}
+
+.e-rel{
+    width:50px;
+    text-align: center;
+    float:left;
+}
+
+.e-conf{
+    width:50px;
+    text-align: center;
+    float:left;
+}
