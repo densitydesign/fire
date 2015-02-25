@@ -1,3 +1,6 @@
+'use strict';
+/* jshint -W098 */
+
 angular.module('mean.emm').filter('unique', function() {
     return function(collection, keyname) {
         var output = [],
@@ -5,7 +8,7 @@ angular.module('mean.emm').filter('unique', function() {
 
         angular.forEach(collection, function(item) {
             var key = item[keyname];
-            if(keys.indexOf(key) === -1) {
+            if(keys.indexOf(key) === -1) {pro
                 keys.push(key);
                 output.push(item);
             }
