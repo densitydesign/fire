@@ -47,3 +47,13 @@ h1{
     text-align: center;
     float:left;
 }
+
+.entity{
+    text-decoration: underline;
+}
+.not-imp {
+    text-decoration: none;
+}
+.v-imp{
+    border-bottom: 1px solid black;
+}
