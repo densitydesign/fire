@@ -1,4 +1,8 @@
 'use strict';
+<<<<<<< HEAD
+=======
+/* jshint -W098 */
+>>>>>>> cf4a7f846e9769a1d000ad16891cf021d026552e
 
 angular.module('mean.emm').filter('unique', function() {
     return function(collection, keyname) {
