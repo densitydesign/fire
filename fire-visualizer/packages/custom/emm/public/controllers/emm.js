@@ -17,7 +17,6 @@ angular.module('mean.emm').controller('EmmController', ['$scope', '$stateParams'
       Emm.get({
           articleId: $stateParams.article
       }, function(article) {
-          console.log(article);
           $scope.article = article;
       });
   };

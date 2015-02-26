@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('mean.emm').filter('unique', function() {
     return function(collection, keyname) {
         var output = [],
