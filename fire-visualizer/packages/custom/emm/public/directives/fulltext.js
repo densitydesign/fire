@@ -29,10 +29,10 @@ angular.module('mean.emm').directive('fulltxt', function($compile){
 
                     scope.topents.forEach(function (e, i) {
 
-                        var re = new RegExp(e.text, 'gi');
+                        var re = new RegExp('\\b'+e.text+'\\b', 'gi');
                         console.log(re);
 
-                        txt = txt.replace(re, '<span ng-style="{\'background\':\'rgba(204, 255, 51, '+ e.confidence/14+')\'}" ng-class="{\'not-imp\':'+e.relevance+'<=0.33,\'v-imp\':'+e.relevance+'>=0.66}" class="entity">' + e.text + '</span>');
+                        txt = txt.replace(re, '<span ng-style="{\'background\':\'rgba(204, 255, 51, '+ e.relevance+')\'}" ng-class="{\'not-imp\':'+e.relevance+'<=0.33,\'v-imp\':'+e.relevance+'>=0.66}" class="entity">' + e.text + '</span>');
 
                     });
 
